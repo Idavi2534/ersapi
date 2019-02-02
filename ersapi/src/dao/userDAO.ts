@@ -23,7 +23,7 @@ import { User } from '../models/userModel';
 
       }
       
-      let stringr=`${JSON.stringify(results.rows[0],name)}`;
+      let stringr=`${JSON.stringify(results.rows[0])}`;
       let object=JSON.parse(stringr);
          //create session user
       
@@ -38,6 +38,8 @@ import { User } from '../models/userModel';
         role:object.role_
          
       };
+
+      request.session.user=newUser;
     console.log(newUser);
       //response.status(200);
       response.json(newUser);

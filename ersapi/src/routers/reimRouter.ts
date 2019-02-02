@@ -14,7 +14,7 @@ import * as rDao from '../dao/reimDAO';
 let index= require('../index')
 
 reimRouter.post('',adminMiddleware, function(req, res){ rDao.submitReim(req, res)})
- reimRouter.get('/author/userId/:userId',adminMiddleware, function(req, res){ rDao.findByUser(req, res)});
+ reimRouter.get('/author/userId/:user_id',adminMiddleware, function(req, res){ rDao.findByUser(req, res)});
  reimRouter.get('/status/:statusId',adminMiddleware, function(req, res){ rDao.findByStatus(req, res)});
  reimRouter.patch('', adminMiddleware, function(req, res){rDao.updateReim(req, res)});
 
