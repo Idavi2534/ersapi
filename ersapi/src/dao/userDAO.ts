@@ -86,16 +86,18 @@ export function updateUser(request, response){
     const role=request.param('role_');
  
   pool.query(
-    'UPDATE users SET username = $1, pass_word = $2, firstName = $3, lastName = $4, email = $5, role_ = $6 WHERE user_id = $7',
+    'UPDATE users SET username = $1, pass_word = $2, firstName = $3, lastName = $4, email = $5, role_ = $6 WHERE user_id = $7 returning *',
     [userName, ppswd, firstName, LastName, userEmail, role, ID],
     (error, results) => {
       if (error) {
         throw error
       }
-      let stringr=`${JSON.stringify(results.rows[0],name)}`;
+      let stringr=`${JSON.stringify(results.rows[0])}`;
       let object=JSON.parse(stringr);
       response.status(200);
       response.json(object);
+     // response.status(200).json(results.rows)
+    
     }
   )
   
