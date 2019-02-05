@@ -8,10 +8,10 @@ import { User } from '../models/userModel';
 //////////////////////
 
     
-  export function findByStatus (request, response) {
+  export async function findByStatus (request, response) {
     const status = parseInt(request.params.statusId)
   
-  pool.query('SELECT * FROM reimbursements WHERE status = $1', [status], (error, results) => {
+  await pool.query('SELECT * FROM reimbursements WHERE status = $1', [status], (error, results) => {
     if (error) {
       throw error
     }
@@ -25,10 +25,10 @@ import { User } from '../models/userModel';
   
 ///////////////////////
 
-export function findByUser(request, response) {
+export async function findByUser(request, response) {
   const id = parseInt(request.params.user_id)
   
-  pool.query('SELECT * FROM reimbursements WHERE author = $1', [id], (error, results) => {
+ await pool.query('SELECT * FROM reimbursements WHERE author = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
@@ -38,7 +38,7 @@ export function findByUser(request, response) {
 }
   
 ////////////////////////////
-export function updateReim(request, response){
+export async function updateReim(request, response){
   const rID=parseInt(request.param('reimbursementId'));
   const author=parseInt(request.param('userId'));
   const amount=+request.param('amount');
@@ -69,7 +69,7 @@ export function updateReim(request, response){
 
 
   
-pool.query(
+await pool.query(
   'UPDATE reimbursements SET author = $2, amount = $3, dateResolved =  current_date , description = $4, resolver = $5, status = $6, type_ = $7 WHERE reimbursementId = $1 returning * ;',
   [rID, author, amount, description, resolver, status, type],
   (error, results) => {
@@ -87,7 +87,7 @@ pool.query(
 }
   
 /////////////////////////
-export function submitReim(request, response){
+export async function submitReim(request, response){
   
   
   const author=+request.param('userId');
@@ -113,7 +113,7 @@ export function submitReim(request, response){
 
 
   //let reim= new Reimbursement()
-pool.query('INSERT INTO reimbursements (reimbursementId, author, amount, dateSubmitted, dateResolved, description, resolver, status, type_  ) VALUES (default, $1, $2, current_date , null, $3, null, $4, $5  ) returning * ;',
+await pool.query('INSERT INTO reimbursements (reimbursementId, author, amount, dateSubmitted, dateResolved, description, resolver, status, type_  ) VALUES (default, $1, $2, current_date , null, $3, null, $4, $5  ) returning * ;',
  [author, amount, description, status, type], (error, results) => {
     if (error) {
       throw error

@@ -9,6 +9,6 @@ const loginRouter = express.Router();
 
 
 
-loginRouter.post('',  function(req, res){  uDao.loginUser(req, res)})
-
+loginRouter.post('', async function(req, res){ await uDao.loginUser(req, res)})
+  
 module.exports=loginRouter

@@ -5,11 +5,16 @@ export const app = require('express')()
 let userDao = require('./dao/userDAO');
 
 const session= require('express-session')
-const port = 3000
+const port = 3300
 
 const userRouter= require( './routers/usersRouter')
 const loginRouter= require( './routers/loginRouter')
 const reimRouter= require( './routers/reimRouter')
+
+app.use('/login', express.static( 'webpages'))
+app.use('', express.static( 'webpages'))
+app.use('/users', express.static( 'webpages'))
+app.use('/reimbursements', express.static( 'webpages'))
 
 
 app.use(bodyParser.json())
@@ -30,11 +35,12 @@ const sess = {
   };
  
   app.use(session(sess));
+  
 
-  app.get('/', (request, response) => {
-    response.json({ info: 'ERS HOMEPAGE' })
-  })
+ app.get('', async  function (req,res){ await res.sendFile(path.resolve('webpages/home/index.html'))})
+ let  path = require('path');
 
+app.get('/login', async function (req,res){ await res.sendFile(path.resolve('webpages/signin/signin.html'))})
 
 
 app.use('/users', userRouter);

@@ -8,7 +8,7 @@ import { User } from '../models/userModel';
 //////////////////////
 
     
-  export function loginUser (request, response) {
+  export async function loginUser (request, response) {
     
      
     const name=request.param('username');
@@ -16,7 +16,7 @@ import { User } from '../models/userModel';
 
    
     let login= 'SELECT * FROM users WHERE username = $1 AND pass_word= $2';
-    pool.query(login, [name,ppswd], (error, results) => {
+    await pool.query(login, [name,ppswd], (error, results) => {
       if (error) {
           response.status(400)
         throw "Invalid Credentials"
@@ -51,10 +51,10 @@ import { User } from '../models/userModel';
   
 ///////////////////////
 
-export function getUsers(request, response) {
+export async function getUsers(request, response) {
     
    
-    pool.query('SELECT * FROM users ORDER BY user_id ASC', (error, results) => {
+  await  pool.query('SELECT * FROM users ORDER BY user_id ASC', (error, results) => {
       if (error) {
         throw "Access Denied"
       }
@@ -63,11 +63,11 @@ export function getUsers(request, response) {
   
   }
 /////////////////////////
-export function getUsersById(request, response) {
+export async function getUsersById(request, response) {
   
       const id = parseInt(request.params.id)
   
-    pool.query('SELECT * FROM users WHERE user_id = $1', [id], (error, results) => {
+   await pool.query('SELECT * FROM users WHERE user_id = $1', [id], (error, results) => {
       if (error) {
         throw error
       }
@@ -76,7 +76,7 @@ export function getUsersById(request, response) {
  
   }
 ////////////////////////////
-export function updateUser(request, response){
+export async function updateUser(request, response){
     const ID=parseInt(request.param('user_id'));
     const userName=request.param('username');
     const ppswd=request.param('pass_word');
@@ -85,7 +85,7 @@ export function updateUser(request, response){
     const userEmail=request.param('email');
     const role=request.param('role_');
  
-  pool.query(
+ await  pool.query(
     'UPDATE users SET username = $1, pass_word = $2, firstName = $3, lastName = $4, email = $5, role_ = $6 WHERE user_id = $7 returning *',
     [userName, ppswd, firstName, LastName, userEmail, role, ID],
     (error, results) => {

@@ -17,12 +17,11 @@ let index= require('../index')
 ///////////////////////
 
 /////////////////////////
-   
+let  path = require('path');
+ 
 
   
-  userRouter.get('',adminMiddleware, function(req, res){
-     uDao.getUsers(req, res)
-  })
+  userRouter.get('',adminMiddleware, function(req, res){  uDao.getUsers(req, res)})
   userRouter.get('/:id',adminMiddleware, function(req, res){ uDao.getUsersById(req, res)});
   userRouter.patch('', adminMiddleware, function(req, res){uDao.updateUser(req, res)});
 
