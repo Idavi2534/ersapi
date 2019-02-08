@@ -19,7 +19,7 @@ import { User } from '../models/userModel';
     await pool.query(login, [name,ppswd], (error, results) => {
       if (error) {
           response.status(400)
-        throw "Invalid Credentials"
+        response.send( "Invalid Credentials")
 
       }
       
@@ -27,7 +27,7 @@ import { User } from '../models/userModel';
       let object=JSON.parse(stringr);
          //create session user
       
-      
+       
       let newUser= {
         id: object.user_id,
         username: object.username,
@@ -41,7 +41,7 @@ import { User } from '../models/userModel';
 
       request.session.user=newUser;
     console.log(newUser);
-      //response.status(200);
+      response.status(200);
       response.json(newUser);
     
       

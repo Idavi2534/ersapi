@@ -22,7 +22,20 @@ import { User } from '../models/userModel';
      
   }
    
+  ///////////////////////////
+
+
+export async function getReimbursements(request, response) {
+    
+   
+  await  pool.query('SELECT * FROM reimbursements ORDER BY reimbursementId ASC', (error, results) => {
+      if (error) {
+        throw "Access Denied"
+      }
+      response.status(200).json(results.rows)
+    })
   
+  }
 ///////////////////////
 
 export async function findByUser(request, response) {
@@ -136,5 +149,6 @@ module.exports={
   findByStatus : findByStatus,
   findByUser : findByUser,
   updateReim: updateReim,
+  getReimbursements:getReimbursements,
   submitReim: submitReim
 };

@@ -16,5 +16,8 @@
     "express-session": "^1.15.6",
     "pg": "^7.8.0",
     "typescript": "^3.2.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }

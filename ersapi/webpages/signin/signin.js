@@ -1,8 +1,8 @@
 
 async function login(event) {
   event.preventDefault(); // prevent default form submission
-  const username = document.getElementById('inputUsername').value;
-  const password = document.getElementById('inputPassword').value;
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
   const credentials = {
     username, // username: value of the variable
     password
@@ -18,9 +18,9 @@ async function login(event) {
   })
 
   if (res.status === 200) {
-    window.location = '../manage-users/manage-users.html';
+    window.location = '../home/welcome.html';
   } else {
-    console.log('failed to log in');
+    console.log('Login Failed');
     document.getElementById('inputPassword').value = '';
-    document.getElementById('error-message').innerText = 'failed to login';
+    document.getElementById('error-message').innerText = 'Failed to Login';
   }}

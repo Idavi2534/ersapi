@@ -3,6 +3,7 @@ export function adminMiddleware(req, res, next) {
       if (user.role === 'admin' || user.role === 'finance-manager') {
         next();
       } else {
-        res.sendStatus(401);
+        res.status(401)
+        res.json( "The incoming token has expired");
       }
     }
