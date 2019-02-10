@@ -51,7 +51,17 @@ const sess = {
 app.get('/login', async function (req,res){ await res.sendFile(path.resolve('webpages/signin/signin.html'))})
 
 app.get('/reimbursements', async function (req,res){ await res.sendFile(path.resolve('webpages/reim/reim.html'))})
-app.get('/users', async function (req,res){ await res.sendFile(path.resolve('webpages/users/manage-users.html'))})
+app.get('/users', async function (req,res){
+  
+  if(req.session.user.role === 'admin' || req.session.user.role === 'finance-manager'){ 
+    await res.sendFile(path.resolve('webpages/users/manage-users.html'))}
+  
+  else{
+    await res.sendFile(path.resolve('webpages/users/user.html'))
+
+  }
+  
+})
 
 
 

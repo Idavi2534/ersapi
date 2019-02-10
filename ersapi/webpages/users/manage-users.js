@@ -1,3 +1,4 @@
+
 $(document).ready(
   function(){
       $('#searchbox').keyup(
@@ -74,12 +75,12 @@ fetch("http://localhost:3300/users/users", {
       rnameData.innerText = user.role_;
       tr.appendChild(rnameData);
       // add the delete data to the row
+     
       let deleteData = document.createElement('td');
       deleteData.innerText = 'DELETE';
       deleteData.className = 'delete-button';
       tr.appendChild(deleteData);
-
-      // add the row to the table body
+console.log(rnameData)      // add the row to the table body
       tbody.appendChild(tr);
 
     })

@@ -21,7 +21,7 @@ let  path = require('path');
  
 
   
-  userRouter.get('/users',adminMiddleware, function(req, res){  uDao.getUsers(req, res)})
+  userRouter.get('/users',adminMiddleware, function(req, res){ if (req.session.user.role==="admin" ||req.session.user.role === 'finance-manager') {uDao.getUsers(req, res)} else {uDao.getUser(req, res)}})
   userRouter.get('users/:id',adminMiddleware, function(req, res){ uDao.getUsersById(req, res)});
   userRouter.patch('', adminMiddleware, function(req, res){uDao.updateUser(req, res)});
 

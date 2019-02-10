@@ -66,31 +66,18 @@ export async function getUsers(request, response) {
 
   export async function getUser(request, response) {
     
-    const name=request.param('username');
-    const ppswd=request.param('password');
-
-    let login= 'SELECT * FROM users WHERE username = $1 AND pass_word= $2';
-    await pool.query(login, [name,ppswd], (error, results) => {
+    const namea=request.session.user.id
+  
+ console.log("name"+namea)
+    let login= 'SELECT * FROM users WHERE user_id = $1';
+    await pool.query(login, [namea], (error, results) => {
       if (error) {
           response.status(400)
 
       }
       
-      let stringr=`${JSON.stringify(results.rows[0])}`;
-      let object=JSON.parse(stringr);
+      response.status(200).json(results.rows)
 
-      let newUser= {
-        id: object.user_id,
-        username: object.username,
-        password: '', // don't send back the passwords
-        firstName: object.firstname,
-        lastName: object.lastname,
-        email:object.email,
-        role:object.role_
-         
-      };
-      response.status(200);
-      response.json(newUser);
     })
   }
 /////////////////////////
@@ -144,5 +131,6 @@ module.exports={
   getUsers : getUsers,
   getUsersById : getUsersById,
   updateUser: updateUser,
+  getUser: getUser,
   loginUser: loginUser
 };

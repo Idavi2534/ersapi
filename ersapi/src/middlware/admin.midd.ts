@@ -1,6 +1,6 @@
 export function adminMiddleware(req, res, next) {
     const user=req.session.user
-      if (user.role === 'admin' || user.role === 'finance-manager') {
+      if (user.role === 'admin' || user.role === 'finance-manager'||user.role === 'associate') {
         next();
       } else {
         res.status(401)
