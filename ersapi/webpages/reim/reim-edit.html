@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" media="screen" href="reim/reim.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="reim.css" />
 
 </head>
 
@@ -27,6 +27,7 @@
             <li class="nav-item ">
               <a class="nav-link" href="../home/index.html"  >   Sign Out  </a>
             </li>
+                </a>
                 </li>
             <li class="nav-item">
               <a class="nav-link" href="../home/welcome.html">Home <span class="sr-only">(current)</span></a>
@@ -35,44 +36,35 @@
               <a class="nav-link" href="/users">Users</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Reimbursements</a>
+              <a class="nav-link" href="/reimbursements">Reimbursements</a>
             </li>
           </ul>
         </div>
       </nav>
-  <div class="container fixed-middle" id="restaurant-table-container">
-      <td colspan="5">
-          <label for="searchbox">Search:</label>
-          <input type="text" id="searchbox" />
-      </td>
-      <button onclick="location.href='reim/reim-edit.html'" type="button">
-       EDIT</button>
-       <button onclick="location.href='reim/reim-add.html'" type="button">
-        ADD REIMBURSEMENT</button>
-    <table class="table" width="100%" >
-      <thead class="gradient-background">
-        <tr>
-          <th scope="col">Rembursement Id</th>
-          <th scope="col">User Id</th>
-          <th scope="col">Amount</th>
-          <th scope="col">Submitted</th>
-          <th scope="col">Resolved</th>
-          <th scope="col">Description</th>
-          <th scope="col">Resolver</th>
-          <th scope="col">Status</th>
-          <th> </th>
-        </tr>
-      </thead>
-      <tbody id="restaurant-table-body"  bgcolor="white">
-        <tr>
-          <td>
-            <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <div class="container fixed-middle" >
 
+        <form class="form-signin" onsubmit="edit(event)">
+                <h1 class="h3 mb-3 font-weight-normal"></h1>
+                <label for="reimId" class="sr-only">Reimbursement ID</label>
+                <input type="text" id="id" class="form-control" placeholder="Reimbursement ID" required autofocus>
+               
+                <label for="userId" class="sr-only">User ID</label>
+                <input type="text" id="userId" class="form-control" placeholder="UserId" required autofocus>
+                
+                <label for="amount" class="sr-only">Amount</label>
+                <input type="text" id="amount" class="form-control" placeholder="Amount" required>
+                
+                <label for="desc" class="sr-only">Description</label>
+                <input type="text" id="desc" class="form-control" placeholder="Description : food/travel/lodging/other" required autofocus>
+               
+                <label for="status" class="sr-only">status</label>
+                <input type="text" id="status" class="form-control" placeholder="Status: 20(Approved) /40(Denied)" required autofocus>
+                
+               
+                <p id="error-message"></p>
+                
+                <button class="btn btn-lg btn-primary btn-block" type="submit">EDIT</button>
+              </form>
 
 </body>
 <!-- bootstrap js files -->
@@ -83,6 +75,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
   crossorigin="anonymous"></script>
 
-<script src="reim/reim.js"></script>
+<script src="reim-edit.js"></script>
 
 </html>

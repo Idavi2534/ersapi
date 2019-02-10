@@ -23,7 +23,7 @@ let  path = require('path');
   
   userRouter.get('/users',adminMiddleware, function(req, res){  uDao.getUsers(req, res)})
   userRouter.get('users/:id',adminMiddleware, function(req, res){ uDao.getUsersById(req, res)});
-  userRouter.patch('/users', adminMiddleware, function(req, res){uDao.updateUser(req, res)});
+  userRouter.patch('', adminMiddleware, function(req, res){uDao.updateUser(req, res)});
 
 
 

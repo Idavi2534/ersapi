@@ -7,10 +7,11 @@ const session= require('express-session')
 const port = 3300
 
  app.use((req, resp, next) => {
-  resp.header('Access-Control-Allow-Origin', `http://localhost:3300`);
-  resp.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  resp.header('Access-Control-Allow-Credentials', 'true');
-  next();
+    resp.header('Access-Control-Allow-Origin', `http://localhost:3300`);
+   resp.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+   resp.header('Access-Control-Allow-Credentials', 'true');
+   resp.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+   next();
 })
 
 const userRouter= require( './routers/usersRouter')

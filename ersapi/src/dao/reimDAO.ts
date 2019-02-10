@@ -52,11 +52,12 @@ export async function findByUser(request, response) {
   
 ////////////////////////////
 export async function updateReim(request, response){
-  const rID=parseInt(request.param('reimbursementId'));
-  const author=parseInt(request.param('userId'));
-  const amount=+request.param('amount');
-  const description=request.param('description');
-  const status=+request.param('status');
+  const rID=parseInt(request.param('rId'));
+  const author=parseInt(request.param('userid'));
+  const amount=parseInt(request.param('amount'));
+  const description=request.param('desc');
+  const status=parseInt(request.param('status'));
+  //console.log(rID + "/"+author+"/"+amount+"/"+description+"/"+status)
   const user= request.session.user
   let resolver=0;
   if(status ===20 || status===40)
@@ -103,9 +104,9 @@ await pool.query(
 export async function submitReim(request, response){
   
   
-  const author=+request.param('userId');
+  const author=+request.param('userid');
   const amount=+request.param('amount');
-  const description=request.param('description');
+  const description=request.param('desc');
   const status=30;
   console.log(author)
   console.log(amount)
@@ -136,7 +137,7 @@ await pool.query('INSERT INTO reimbursements (reimbursementId, author, amount, d
     let stringr=`${JSON.stringify(results.rows[0])}`;
    
     let object=JSON.parse(stringr);
-    response.status(201);
+    response.status(200);
     
     response.json(object);
   }
