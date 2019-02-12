@@ -36,6 +36,21 @@ export async function getReimbursements(request, response) {
     })
   
   }
+
+  export async function getReim(request, response) {
+      
+
+    const namea=request.session.user.id
+   
+    await  pool.query('SELECT * FROM reimbursements WHERE author = $1', [namea], (error, results) => {
+      if (error) {
+        response.status(400)
+
+    }
+        response.status(200).json(results.rows)
+      })
+    
+    }
 ///////////////////////
 
 export async function findByUser(request, response) {
@@ -150,6 +165,7 @@ module.exports={
   findByStatus : findByStatus,
   findByUser : findByUser,
   updateReim: updateReim,
+  getReim:getReim,
   getReimbursements:getReimbursements,
   submitReim: submitReim
 };

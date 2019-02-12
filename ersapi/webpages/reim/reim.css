@@ -29,6 +29,6 @@
   .delete-button:hover {
     -webkit-box-shadow: inset 0px 0px 32px 0px #98faf2bb;
   -moz-box-shadow: inset 0px 0px 32px 0px #29aca1bb;
-  box-shadow: inset 0px 0px 32px 0px#f81a1a;
+  box-shadow: inset 0px 0px 32px 0px#f80303;
   cursor: not-allowed;
   }

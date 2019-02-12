@@ -17,7 +17,7 @@ reimRouter.post('',adminMiddleware, function(req, res){ rDao.submitReim(req, res
  reimRouter.get('reimbursements/author/userId/:user_id',adminMiddleware, function(req, res){ rDao.findByUser(req, res)});
  reimRouter.get('reimbursements/status/:statusId',adminMiddleware, function(req, res){ rDao.findByStatus(req, res)});
  reimRouter.patch('', adminMiddleware, function(req, res){rDao.updateReim(req, res)});
- reimRouter.get('/reimbursements',adminMiddleware, function(req, res){  rDao.getReimbursements(req, res)})
+ reimRouter.get('/reimbursements',adminMiddleware, function(req, res){ if (req.session.user.role==="admin" ||req.session.user.role === 'finance-manager') {rDao.getReimbursements(req, res)} else {rDao.getReim(req, res)}})
 
 
 

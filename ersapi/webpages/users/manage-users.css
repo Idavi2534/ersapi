@@ -27,6 +27,8 @@
     padding-top: 70px;
     padding-bottom: 40px;
     background-color: #238086bb;
+    width: 100%;
+    display: table;
   }
   
   .gradient-background {

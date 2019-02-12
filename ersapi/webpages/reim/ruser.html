@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Users</title>
+  <title>Reimbursements</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- bootstrap css -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" media="screen" href="users/manage-users.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="reim/reim.css" />
 
 </head>
 
@@ -27,36 +27,35 @@
             <li class="nav-item ">
               <a class="nav-link" href="../home/index.html"  >   Sign Out  </a>
             </li>
-                </a>
                 </li>
             <li class="nav-item">
               <a class="nav-link" href="../home/welcome.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Users</a>
+              <a class="nav-link" href="/users">Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/reimbursements">Reimbursements</a>
+              <a class="nav-link" href="#">Reimbursements</a>
             </li>
           </ul>
         </div>
       </nav>
   <div class="container fixed-middle" id="restaurant-table-container">
-      <td colspan="2">
+      <td colspan="5">
           <label for="searchbox">Search:</label>
           <input type="text" id="searchbox" />
       </td>
-      <button onclick="location.href='edit-users.html'" type="button">
-        EDIT</button>
-    <table class="table" >
+    <table class="table" width="100%" >
       <thead class="gradient-background">
-        <tr id="rowz">
-          <th scope="col">UserId</th>
-          <th scope="col">Username</th>
-          <th scope="col">Firstname</th>
-          <th scope="col">Lastname</th>
-          <th scope="col">Email</th>
-          <th scope="col">Role</th>
+        <tr>
+          <th scope="col">Rembursement Id</th>
+          <th scope="col">User Id</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Submitted</th>
+          <th scope="col">Resolved</th>
+          <th scope="col">Description</th>
+          <th scope="col">Resolver</th>
+          <th scope="col">Status</th>
           <th> </th>
         </tr>
       </thead>
@@ -80,6 +79,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
   crossorigin="anonymous"></script>
 
-<script src="users/manage-users.js"></script>
+<script src="reim/ruser.js"></script>
 
 </html>
