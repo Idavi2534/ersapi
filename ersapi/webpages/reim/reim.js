@@ -4,8 +4,10 @@ $(document).ready(
   function(){
       $('#searchbox').keyup(
           function(){
-              var searchText = $(this).val();
-  
+              let searchText = $(this).val().trim();
+            
+              console.log("this is what im searching"+ searchText+", hi");
+           
               if (searchText.length > 0) {
                   $('tbody tr:contains('+searchText+')')
                       .addClass('searchResult');

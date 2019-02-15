@@ -29,6 +29,14 @@
     background-color: #238086bb;
     width: 100%;
     display: table;
+
+      background: url(../images/pp.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+
   }
   
   .gradient-background {
@@ -40,8 +48,10 @@
   }
   
   .delete-button:hover {
+    background-image: url(../images//44.png);
+background-repeat: no-repeat;
     -webkit-box-shadow: inset 0px 0px 32px 0px #98faf2bb;
   -moz-box-shadow: inset 0px 0px 32px 0px #29aca1bb;
   box-shadow: inset 0px 0px 32px 0px#f81a1a;
-  cursor: not-allowed;
+
   }

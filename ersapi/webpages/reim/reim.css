@@ -4,10 +4,11 @@
   
   #restaurant-table-body > tr:hover {
     cursor: pointer;
-    -webkit-box-shadow: inset 0px 0px 32px 0px rgba(55, 201, 201, 0.63);
-  -moz-box-shadow: inset 0px 0px 32px 0px #4ad1d1bb;
-  box-shadow: inset 0px 0px 32px 0px rgba(48, 245, 252, 0.541);
+    -webkit-box-shadow: inset 0px 0px 32px 0px rgba(7, 88, 88, 0.63);
+  -moz-box-shadow: inset 0px 0px 32px 0px #186969bb;
+  box-shadow: inset 0px 0px 32px 0px rgba(19, 116, 119, 0.541);
   }
+ 
   body {
     display: -ms-flexbox;
     display: flex;
@@ -15,7 +16,11 @@
     align-items: center;
     padding-top: 70px;
     padding-bottom: 40px;
-    background-color: #238086bb;
+    background: url(../images/oo.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
   
   .gradient-background {
@@ -27,8 +32,8 @@
   }
   
   .delete-button:hover {
-    -webkit-box-shadow: inset 0px 0px 32px 0px #98faf2bb;
-  -moz-box-shadow: inset 0px 0px 32px 0px #29aca1bb;
+    -webkit-box-shadow: inset 0px 0px 32px 0px #186969bb;
+  -moz-box-shadow: inset 0px 0px 32px 0px #186969bb;
   box-shadow: inset 0px 0px 32px 0px#f80303;
   cursor: not-allowed;
   }
