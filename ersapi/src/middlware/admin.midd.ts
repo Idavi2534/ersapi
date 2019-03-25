@@ -1,5 +1,6 @@
 export function adminMiddleware(req, res, next) {
     const user=req.session.user
+    console.log(user.role)
       if (user.role === 'admin' || user.role === 'finance-manager'||user.role === 'associate') {
         next();
       } else {

@@ -1,4 +1,4 @@
-const pool = require('../data')
+const pool = require('../data').pool
 import express from 'express';//have to import express before creating router
 const userRouter = express.Router();
 
@@ -22,10 +22,9 @@ import { User } from '../models/userModel';
         response.send( "Invalid Credentials")
 
       }
-      
-      let stringr=`${JSON.stringify(results.rows[0])}`;
-      let object=JSON.parse(stringr);
-         //create session user
+      console.log(`${JSON.stringify(results.rows[0])}`)
+     // let stringr=`${JSON.stringify(results.rows[0])}`;
+      let object=JSON.parse(`${JSON.stringify(results.rows[0])}`);     //create session user
       
        
       let newUser= {

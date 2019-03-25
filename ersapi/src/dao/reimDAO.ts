@@ -1,4 +1,4 @@
-const pool = require('../data')
+const pool = require('../data').pool
 import express from 'express';//have to import express before creating router
 const userRouter = express.Router();
 import {Reimbursement} from '../models/reimModel';
