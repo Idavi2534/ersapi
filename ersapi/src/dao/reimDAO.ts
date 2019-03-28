@@ -18,7 +18,7 @@ import { User } from '../models/userModel';
     response.status(200).json(results.rows)
   })
 
-
+console.log("")
      
   }
    
