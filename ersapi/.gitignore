@@ -1,3 +1,10 @@
 src/data.ts
 app-env
 jenkinsfile
+node_modules/
+.elasticbeanstalk/
+.ebextensions/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
